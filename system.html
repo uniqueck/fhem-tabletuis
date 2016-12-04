@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tablet UI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="widget_base_width" content="116">
+		<meta name="widget_base_height" content="137">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="longpoll" content="1">
+		<meta name="fhemweb_url" content="http://raspberrypi:8083/fhem/">
+		<meta name='gridster_disable' content='1'>
+		<link rel="stylesheet" href="/fhem/tablet/lib/jquery.gridster.min.css">
+		<link rel="stylesheet" href="/fhem/tablet/css/fhem-tablet-ui.css">
+		<link rel="stylesheet" href="/fhem/tablet/lib/font-awesome.min.css">
+		<link rel="stylesheet" href="/fhem/tablet/lib/jquery.toast.min.css">
+		<!--
+		<link rel="stylesheet" href="/fhem/tablet/lib/powerange.min.css">
+		<link rel="stylesheet" href="/fhem/tablet/lib/openautomation.css">
+		-->
+		<link rel="stylesheet" href="/fhem/tablet/css/wopr.css">
+		<link rel="stylesheet" href="/fhem/tablet/css/style.css">
+		<link rel="stylesheet" href="/fhem/tablet/css/own.css">
+		
+		<script src="/fhem/pgm2/jquery.min.js" defer></script>
+		<script src="/fhem/tablet/lib/jquery.toast.min.js" defer></script>
+		<script src="/fhem/tablet/lib/jquery.gridster.min.js" defer></script>
+		<script src="/fhem/tablet/js/fhem-tablet-ui.min.js" defer></script>
+		
+	</head>
+	<body>
+	<div class="gridster">
+		<ul>
+		<li data-row="1" data-col="1" data-sizex="3" data-sizey="1" class="gs-w">
+			<div data-type="simpleClock"
+			data-date-format="l, d. F Y" data-time-format="H:i"
+			class="big"
+			style="width: 100%; text-align: center;"
+			data-date-color="#FFF"
+			data-time-color="#FFF"
+			data-time-bg-colors='["#555","#000"]'
+			>
+			</div>
+		</li> 
+		<li data-row="2" data-col="1" data-sizex="1" data-sizey="3" class="gs-w">
+			<header>MENUE</header>
+			<div  
+				class="cell bigger" 
+				data-on-background-color="#FFF200" 
+				data-icon="fa-home" 
+				data-type="button" 
+				data-url="index.html"
+				>
+			</div>
+			<div  
+				class="cell bigger narrow" 
+				data-on-background-color="#6EB54C" 
+				data-icon="fa-info" 
+				data-type="button" 
+				data-url="index.html"
+				>
+			</div>
+			<div  
+				class="cell bigger" 
+				data-on-background-color="#FFF200" 
+				data-icon="fa-line-chart" 
+				data-type="button" 
+				data-url="system_plot.html"
+				>
+			</div>
+		</li> 
+		</ul>
+	</div>
+	</body>			
+</html>
