@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tablet UI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="widget_base_width" content="128">
+		<meta name="widget_base_height" content="57">
+		<meta name="widget_margin" content="0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="longpoll" content="1">
+		<meta name="fhemweb_url" content="http://fhem:8083/fhem/">
+		<meta name='gridster_disable' content='1'>
+		<meta name='debug' content='1' />
+		<link rel="stylesheet" href="/fhem/tablet/lib/jquery.gridster.min.css">
+		<link rel="stylesheet" href="/fhem/tablet/css/fhem-tablet-ui.css">
+		<link rel="stylesheet" href="/fhem/tablet/lib/font-awesome.min.css">
+		<link rel="stylesheet" href="/fhem/tablet/lib/jquery.toast.min.css">
+		
+		<link rel="stylesheet" href="./../css/fhem-tablet-ui-user.css">
+		
+		<script src="/fhem/pgm2/jquery.min.js" defer></script>
+		<script src="/fhem/tablet/lib/jquery.toast.min.js" defer></script>
+		<script src="/fhem/tablet/lib/jquery.gridster.min.js" defer></script>
+		<script src="/fhem/tablet/js/fhem-tablet-ui.min.js" defer></script>
+		
+	</head>
+	<body topmargin="0" leftmargin="0" margin="0">
+	<div class="gridster">
+		<ul>
+		<li data-row="1" data-col="1" data-sizex="3" data-sizey="1" 
+		class="gs-w"
+		>
+			<div data-type="clock" data-format="H:i  d M Y"
+			 	class="cell bigger"
+			 	>
+			</div>		
+		</li> 
+		<li data-row="1" data-col="1" data-sizex="6" data-sizey="1" 
+		class="gs-w"
+		>
+		</li> 
+		<li data-row="1" data-col="10" data-sizex="1" data-sizey="1" 
+		class="gs-w"
+		>
+			<div  
+				class="cell big narrow" 
+				data-on-color="#11D597" 
+				data-off-color="#11D597" 
+				data-background-icon="" 
+				data-icon="fa-microphone" 
+				data-type="button" 
+				data-fhem-cmd=""
+				data-device="amad.lifetab"
+				>
+			</div>
+		</li> 
+		<li data-row="2" data-col="1" data-sizex="3" data-sizey="7" 
+		class="gs-w bg-cyan"
+		>
+			<div data-type="label" class="cell big" data-device="Sonos_Buero" data-get="roomNameAlias"
+			>
+			</div>
+			<div data-type="itunes_artwork" data-device="Sonos_Buero"
+				data-get='["currentArtist","currentAlbum","currentTitle"]'
+				data-size="368"
+				class="wider"
+			>
+			</div>
+			<div data-type="label"  data-device="Sonos_Buero" data-get="infoSummarize1"
+			>
+			</div>
+		</li> 
+		<li data-row="10" data-col="1" data-sizex="3" data-sizey="4" 
+		class="gs-w bg-cyan"
+		>
+			<div class="cell top-space" >
+				<div data-type="push" data-device="Sonos_Buero" data-icon="fa-step-backward"  data-set-on="Previous"
+				data-background-icon=""
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="Sonos_Buero" data-icon="fa-stop"  data-set-on="Stop"
+				data-background-icon=""
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="Sonos_Buero" data-icon="fa-play"  data-set-on="Play"
+				data-background-icon=""
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="Sonos_Buero" data-icon="fa-step-forward"  data-set-on="Next"
+				data-background-icon=""
+				class="inline  big"
+				>	
+				</div>
+			</div>
+			<div class="cell" >
+				<div data-type="push" data-device="Sonos_Buero" data-icon="fa-volume-down"  data-set-on="VolumeD"
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="Sonos_Buero" data-icon="fa-volume-off"  data-set-on="Volume"
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="Sonos_Buero" data-icon="fa-volume-up"  data-set-on="VolumeU"
+				class="inline big"
+				>	
+				</div>
+			</div>
+			<div class="cell" >
+				<div data-type="select" data-device="Sonos_Buero"
+					data-list="FavTabletUI"
+					data-set="startFavourite"
+					class="cell w3x"
+				>			
+				</div>
+			</div>
+		</li> 
+		<li data-row="2" data-col="4" data-sizex="3" data-sizey="7" 
+		class="gs-w bg-cyan"
+		>
+			<div data-type="label" class="cell big" data-device="Sonos_Buero_RF" data-get="roomNameAlias"
+			>
+			</div>
+			<div data-type="itunes_artwork" data-device="Sonos_Buero_RF"
+				data-get='["currentArtist","currentAlbum","currentTitle"]'
+				data-size="368"
+				class="wider"
+			>
+			</div>
+			<div data-type="label"  data-device="Sonos_Buero_RF" data-get="infoSummarize1"
+			>
+			</div>
+		</li> 
+		<li data-row="10" data-col="4" data-sizex="3" data-sizey="4" 
+		class="gs-w bg-cyan"
+		>
+			<div class="cell top-space" >
+				<div data-type="push" data-device="Sonos_Buero_RF" data-icon="fa-step-backward"  data-set-on="Previous"
+				data-background-icon=""
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="Sonos_Buero_RF" data-icon="fa-stop"  data-set-on="Stop"
+				data-background-icon=""
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="Sonos_Buero_RF" data-icon="fa-play"  data-set-on="Play"
+				data-background-icon=""
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="Sonos_Buero_RF" data-icon="fa-step-forward"  data-set-on="Next"
+				data-background-icon=""
+				class="inline  big"
+				>	
+				</div>
+			</div>
+			<div class="cell" >
+				<div data-type="push" data-device="Sonos_Buero_RF" data-icon="fa-volume-down"  data-set-on="VolumeD"
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="Sonos_Buero_RF" data-icon="fa-volume-off"  data-set-on="Volume"
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="Sonos_Buero_RF" data-icon="fa-volume-up"  data-set-on="VolumeU"
+				class="inline big"
+				>	
+				</div>
+			</div>
+			<div class="cell" >
+				<div data-type="select" data-device="Sonos_Buero_RF"
+					data-list="Playlists"
+					data-set="StartPlaylist"
+					class="cell w3x"
+				>			
+				</div>
+			</div>
+		</li> 
+		<li data-row="2" data-col="7" data-sizex="3" data-sizey="7" 
+		class="gs-w bg-cyan"
+		>
+			<div data-type="label" class="cell big" data-device="MPD.RuneAudio" data-get="alias"
+			>
+			</div>
+			<div data-type="itunes_artwork" data-device="MPD.RuneAudio"
+				data-get='["artist","album","title"]'
+				data-size="368"
+				class="wider"
+			>
+			</div>
+			<div data-type="label"  data-device="MPD.RuneAudio" data-get="title"
+			>
+			</div>
+		</li> 
+		<li data-row="10" data-col="7" data-sizex="3" data-sizey="4" 
+		class="gs-w bg-cyan"
+		>
+			<div class="cell top-space" >
+				<div data-type="push" data-device="MPD.RuneAudio" data-icon="fa-step-backward"  data-set-on="Previous"
+				data-background-icon=""
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="MPD.RuneAudio" data-icon="fa-stop"  data-set-on="Stop"
+				data-background-icon=""
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="MPD.RuneAudio" data-icon="fa-play"  data-set-on="Play"
+				data-background-icon=""
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="MPD.RuneAudio" data-icon="fa-step-forward"  data-set-on="Next"
+				data-background-icon=""
+				class="inline  big"
+				>	
+				</div>
+			</div>
+			<div class="cell" >
+				<div data-type="push" data-device="MPD.RuneAudio" data-icon="fa-volume-down"  data-set-on="VolumeD"
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="MPD.RuneAudio" data-icon="fa-volume-off"  data-set-on="Volume"
+				class="inline big"
+				>	
+				</div>
+				<div data-type="push" data-device="MPD.RuneAudio" data-icon="fa-volume-up"  data-set-on="VolumeU"
+				class="inline big"
+				>	
+				</div>
+			</div>
+		</li> 
+		<li data-row="13" data-col="1" data-sizex="10" data-sizey="2" 
+		class="gs-w"
+		>
+			<div  
+				class="bigger cell wider" 
+				data-on-background-color="#FFF" 
+				data-on-color="#000" 
+				data-background-icon="fa-square" 
+				data-icon="fa-home" 
+				data-type="button" 
+				data-url="index.html"
+				>
+			</div>
+			<div  
+				class="bigger cell wider" 
+				data-on-background-color="#FFF" 
+				data-on-color="#000" 
+				data-background-icon="fa-square" 
+				data-icon="fa-lightbulb-o" 
+				data-type="button" 
+				data-url="lights.html"
+				>
+			</div>
+			<div  
+				class="bigger cell wider" 
+				data-on-background-color="#FFF" 
+				data-on-color="#000" 
+				data-background-icon="fa-square" 
+				data-icon="fa-phone" 
+				data-type="button" 
+				data-url="notification.html"
+				>
+			</div>
+			<div  
+				class="bigger cell wider" 
+				data-on-background-color="#11D597" 
+				data-on-color="#FFF" 
+				data-background-icon="fa-square" 
+				data-icon="fa-music" 
+				data-type="button" 
+				data-url="music.html"
+				>
+			</div>
+		</li> 
+		</ul>
+	</div>
+	</body>			
+</html>

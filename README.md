@@ -1,1 +1,4 @@
-# fhem-tabletuis
+# TableUI für Medion Tablet
+## allgemeine Informationen
+
+## Seitenstruktur
