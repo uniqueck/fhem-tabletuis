@@ -1,49 +1,42 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Tablet UI</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<meta name="widget_base_width" content="128">
-		<meta name="widget_base_height" content="57">
-		<meta name="widget_margin" content="0"/>
-		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="longpoll" content="1">
-		<meta name="fhemweb_url" content="http://fhem:8083/fhem/">
-		<meta name='gridster_disable' content='1'>
-		<meta name='debug' content='1' />
-		<link rel="stylesheet" href="/fhem/tablet/lib/jquery.gridster.min.css">
-		<link rel="stylesheet" href="/fhem/tablet/css/fhem-tablet-ui.css">
-		<link rel="stylesheet" href="/fhem/tablet/lib/font-awesome.min.css">
-		<link rel="stylesheet" href="/fhem/tablet/lib/jquery.toast.min.css">
-		
-		<link rel="stylesheet" href="./../css/fhem-tablet-ui-user.css">
-		
-		<script src="/fhem/pgm2/jquery.min.js" defer></script>
-		<script src="/fhem/tablet/lib/jquery.toast.min.js" defer></script>
-		<script src="/fhem/tablet/lib/jquery.gridster.min.js" defer></script>
-		<script src="/fhem/tablet/js/fhem-tablet-ui.min.js" defer></script>
+		<!--
+		/* FHEM tablet ui */
+		/*
+		 * UI builder framework for FHEM
+	         *
+	         * Version: 2.5.*
+	         * URL: https://github.com/knowthelist/fhem-tablet-ui
+	         *
+	         * Copyright (c) 2015-2017 Mario Stephan <mstephan@shared-files.de>
+	         * Under MIT License (http://www.opensource.org/licenses/mit-license.php)
+	         *
+	         * - create a new folder named 'tablet' in /<fhem-path>/www
+	         * - copy all files incl. sub folders into /<fhem-path>/www/tablet
+	         * - add 'define TABLETUI HTTPSRV ftui ./www/tablet Tablet' in fhem.cfg
+	         * - Tadaaa! A new fhem ui in http://<fhem-url>:8083/fhem/tablet/
+	         */
+	        -->
+	         <link rel="icon" href="favicon.ico" type="image/x-icon" />
+	    	 <link rel="stylesheet" href="./../css/fhem-tablet-ui-user.css" />
+		 <script src="js/fhem-tablet-ui.js" defer></script>
 		
 	</head>
 	<body topmargin="0" leftmargin="0" margin="0">
 	<div class="gridster">
 		<ul>
 		<li data-row="1" data-col="1" data-sizex="3" data-sizey="1" 
-		class="gs-w"
-		>
-			<div data-type="clock" data-format="d.m.Y H:i"
-			 	class="cell bigger"
-			 	>
+		class="gs-w">
+			<div data-type="clock" data-format="d.m.Y H:i" class="cell bigger">
 			</div>		
 		</li> 
 		<li data-row="1" data-col="1" data-sizex="6" data-sizey="1" 
-		class="gs-w"
-		>
+		class="gs-w">
 		</li> 
+<!--		
 		<li data-row="1" data-col="10" data-sizex="1" data-sizey="1" 
-		class="gs-w"
-		>
+		class="gs-w">
 			<div  
 				class="cell big narrow" 
 				data-on-color="#11D597" 
@@ -55,7 +48,8 @@
 				data-device="amad.lifetab"
 				>
 			</div>
-		</li> 
+		</li>
+--> 
 		<li data-row="2" data-col="1" data-sizex="2" data-sizey="4" 
 		class="gs-w bg-cyan"
 		>
