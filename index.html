@@ -36,13 +36,22 @@
 			</div>		
 		</li> 
 		<li data-row="1" data-col="1" data-sizex="6" data-sizey="1" class="gs-w">
-			<div class="right narrow">
+			<div class="right">
 				<div 	data-device="abfall_Bretten"
-						data-type="symbol" class="big warn narrow" 
+						data-type="symbol" class="big warn" 
           			data-get="next" data-get-warn=".*(\d+).*" 
           			data-get-on='["Restmuell_.*","Wertstoff_.*"]'
           			data-on-colors='["#000","#6EB54C"]' 
           			data-icons='["fa-trash-o","fa-trash-o"]'			
+				</div>
+				<div 	data-device="calv_UnsereGeburtstage"
+						data-type="symbol" class="big warn" 
+          			data-get="notification" data-get-warn=".*_(\d+)" 
+          			data-get-on='["today_.*","tomorrow_.*"]'
+          			data-on-colors='["#000","#6EB54C"]' 
+          			data-icons='["fa-gift","fa-gift"]'
+          			data-hide="notification"
+          			data-hide-on="keine"			
 				</div>
 		</li> 
 		<li data-row="1" data-col="10" data-sizex="1" data-sizey="1" class="gs-w">
