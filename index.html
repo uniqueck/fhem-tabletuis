@@ -33,28 +33,30 @@
 		<ul>
 		<!-- Notification Area - Start -->
 		<li data-row="1" data-col="1" data-sizex="3" data-sizey="2" class="gs-w">
-			<div data-type="clock" data-format="d.m.Y H:i" class="cell grande">
+			<div data-type="clock" data-format="d.m.Y H:i" class="center tall thin">
 			</div>		
 		</li> 
 		<li data-row="1" data-col="1" data-sizex="7" data-sizey="2" class="gs-w">
-			<div class="right">
+			<div class="right cell">
 				<div 	data-device="abfall_Bretten"
-						data-type="symbol" class="big warn inline" 
+						data-type="symbol" class="bigger warn inline narrow" 
           			data-get="next" data-get-warn=".*(\d+).*" 
           			data-get-on='["Restmuell_.*","Wertstoff_.*"]'
           			data-on-colors='["#000","#6EB54C"]' 
           			data-icons='["fa-trash-o","fa-trash-o"]'
-          			data-background-icon="fa-square">
+          			data-background-icon="fa-square"
+          			data-background-color="bg-white">
 				</div>
 				<div 	data-device="calv_UnsereGeburtstage"
-						data-type="symbol" class="big warn inline" 
+						data-type="symbol" class="bigger warn inline narrow" 
           			data-get="notification" data-get-warn=".*_(\d+)" 
           			data-get-on='["today_.*","tomorrow_.*"]'
           			data-on-colors='["#000","#6EB54C"]' 
           			data-icons='["fa-gift","fa-gift"]'
           			data-hide="notification"
           			data-hide-on="keine"
-          			data-background-icon="fa-square">			
+          			data-background-icon="fa-square"
+          			data-background-color="bg-white">			
 				</div>
 		</li> 
 		<!-- Notification Area - Ende -->
