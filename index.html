@@ -32,18 +32,19 @@
 	<div class="gridster">
 		<ul>
 		<!-- Notification Area - Start -->
-		<li data-row="1" data-col="1" data-sizex="3" data-sizey="2" class="gs-w bg-white">
-			<div data-type="clock" data-format="d.m.Y H:i" class="cell bigger">
+		<li data-row="1" data-col="1" data-sizex="3" data-sizey="2" class="gs-w">
+			<div data-type="clock" data-format="d.m.Y H:i" class="cell grande">
 			</div>		
 		</li> 
-		<li data-row="1" data-col="1" data-sizex="7" data-sizey="2" class="gs-w bg-white">
+		<li data-row="1" data-col="1" data-sizex="7" data-sizey="2" class="gs-w">
 			<div class="right">
 				<div 	data-device="abfall_Bretten"
 						data-type="symbol" class="big warn inline" 
           			data-get="next" data-get-warn=".*(\d+).*" 
           			data-get-on='["Restmuell_.*","Wertstoff_.*"]'
           			data-on-colors='["#000","#6EB54C"]' 
-          			data-icons='["fa-trash-o","fa-trash-o"]'>			
+          			data-icons='["fa-trash-o","fa-trash-o"]'
+          			data-background-icon="fa-square">
 				</div>
 				<div 	data-device="calv_UnsereGeburtstage"
 						data-type="symbol" class="big warn inline" 
@@ -52,7 +53,8 @@
           			data-on-colors='["#000","#6EB54C"]' 
           			data-icons='["fa-gift","fa-gift"]'
           			data-hide="notification"
-          			data-hide-on="keine">			
+          			data-hide-on="keine"
+          			data-background-icon="fa-square">			
 				</div>
 		</li> 
 		<!-- Notification Area - Ende -->
