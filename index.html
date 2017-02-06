@@ -31,11 +31,12 @@
 	<body topmargin="0" leftmargin="0" margin="0">
 	<div class="gridster">
 		<ul>
-		<li data-row="1" data-col="1" data-sizex="3" data-sizey="1" class="gs-w">
+		<!-- Notification Area - Start -->
+		<li data-row="1" data-col="1" data-sizex="3" data-sizey="2" class="gs-w bg-white">
 			<div data-type="clock" data-format="d.m.Y H:i" class="cell bigger">
 			</div>		
 		</li> 
-		<li data-row="1" data-col="1" data-sizex="6" data-sizey="1" class="gs-w">
+		<li data-row="1" data-col="1" data-sizex="7" data-sizey="2" class="gs-w bg-white">
 			<div class="right">
 				<div 	data-device="abfall_Bretten"
 						data-type="symbol" class="big warn inline" 
@@ -54,39 +55,38 @@
           			data-hide-on="keine">			
 				</div>
 		</li> 
-		<li data-row="1" data-col="10" data-sizex="1" data-sizey="1" class="gs-w">
-		</li>
-		<li data-row="2" data-col="1" data-sizex="2" data-sizey="4" class="gs-w bg-cyan">
+		<!-- Notification Area - Ende -->
+		<li data-row="3" data-col="1" data-sizex="2" data-sizey="4" class="gs-w bg-cyan">
 			<div data-type="label" class="wider grande" data-device="LaCrosse_Kueche" data-get="temperature" data-unit="°C&nbsp;">
 			</div>
 			<div data-type="label" class="bigger" data-device="LaCrosse_Kueche" data-get="alias">
 			</div>
 		</li> 
-		<li data-row="2" data-col="3" data-sizex="2" data-sizey="4" class="gs-w bg-cyan">
+		<li data-row="3" data-col="3" data-sizex="2" data-sizey="4" class="gs-w bg-cyan">
 			<div data-type="label" class="wider grande" data-device="LaCrosse_Wohnzimmer" data-get="temperature" data-unit="°C&nbsp;">
 			</div>
 			<div data-type="label" class="bigger" data-device="LaCrosse_Wohnzimmer" data-get="alias">
 			</div>
 		</li> 
-		<li data-row="2" data-col="5" data-sizex="2" data-sizey="4" class="gs-w bg-cyan">
+		<li data-row="3" data-col="5" data-sizex="2" data-sizey="4" class="gs-w bg-cyan">
 			<div data-type="label" class="wider grande" data-device="LaCrosse_Buero" data-get="temperature" data-unit="°C&nbsp;">
 			</div>
 			<div data-type="label" class="bigger" data-device="LaCrosse_Buero" data-get="alias">
 			</div>
 		</li> 
-		<li data-row="2" data-col="7" data-sizex="2" data-sizey="4" class="gs-w bg-cyan">
+		<li data-row="3" data-col="7" data-sizex="2" data-sizey="4" class="gs-w bg-cyan">
 			<div data-type="label" class="wider grande" data-device="LaCrosse_Schlafzimmer" data-get="temperature" data-unit="°C&nbsp;">
 			</div>
 			<div data-type="label" class="bigger" data-device="LaCrosse_Schlafzimmer" data-get="alias">
 			</div>
 		</li> 
-		<li data-row="2" data-col="9" data-sizex="2" data-sizey="4" class="gs-w bg-cyan">
+		<li data-row="3" data-col="9" data-sizex="2" data-sizey="4" class="gs-w bg-cyan">
 			<div data-type="label" class="wider grande" data-device="HM_UW_Aussen" data-get="temperature" data-unit="°C&nbsp;">
 			</div>
 			<div data-type="label" class="bigger" data-device="HM_UW_Aussen" data-get="alias">
 			</div>
 		</li>
-		<li data-row="6" data-col="1" data-sizex="5" data-sizey="5" class="gs-w bg-cyan">
+		<li data-row="7" data-col="1" data-sizex="5" data-sizey="6" class="gs-w bg-cyan">
 			<div class="center" >
 				<div data-type="label" class="gigantic inline verticalLine" data-device="prop_Bretten" data-get="fc0_tempMax"
 					data-unit="°C&nbsp;">
@@ -104,7 +104,7 @@
 				</div>
 			</div>
 		</li> 
-		<li data-row="6" data-col="6" data-sizex="5" data-sizey="5" class="gs-w bg-cyan">
+		<li data-row="7" data-col="6" data-sizex="5" data-sizey="6" class="gs-w bg-cyan">
 			<div class="center">
 				<div data-type="label" class="gigantic inline verticalLine" data-device="prop_Bretten" data-get="fc1_tempMax"
 					data-unit="°C&nbsp;">
@@ -120,9 +120,6 @@
 				<div data-type="label" class="left bigger cell" data-device="prop_Bretten" data-get="fc1_date" data-substitution="toDate().eeee()">
 				</div>
 			</div>
-		</li>
-		<li data-row="11" data-col="1" data-sizex="10" data-sizey="2" class="gs-w bg-white">
-							
 		</li>
 		<li data-row="13" data-col="1" data-sizex="10" data-sizey="2" class="gs-w">
 			<div class="center">
