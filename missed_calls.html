@@ -61,19 +61,6 @@
           			data-hide-on="keine"
           			data-background-icon="fa-square"
           			data-background-color="#fff">			
-				</div>
-				<div data-type="link" data-url="notification.html">				
-					<div 	data-device="CallMon"
-							data-type="symbol" class="bigger warn inline narrow" 
-          				data-get="notification_area" data-get-warn="(\d+)" 
-          				data-get-on='(\d+)'
-          				data-on-color='#000' 
-          				data-icon='fa-phone'
-          				data-hide="notification_area"
-          				data-hide-on="keine"
-          				data-background-icon="fa-square"
-          				data-background-color="#fff">			
-					</div>
 				</div>				
 		</li> 
 		<!-- Notification Area - Ende -->
@@ -174,9 +161,18 @@
                      data-get="5-number"></div>			
 		</li>
 		<!-- Option Column - Start -->
-		<li data-row="3" data-col="10" data-sizex="1" data-sizey="10" class="gs-w bg-cyan">
-			<div class="center bigger" data-type="push" data-device="CallMon"
-              data-background-icon="fa-square" data-icon="trash" data-set="set clear"></div>			
+		<li data-row="3" data-col="10" data-sizex="1" data-sizey="10" class="gs-w bg-black">
+			<div data-type="link" data-fhem-cmd="set CallMon clear">				
+					<div 	data-device="CallMon"
+							data-type="symbol" class="bigger inline narrow" 
+          				data-color='#000' 
+          				data-icon='fa-trash'
+          				data-hide="notification_area"
+          				data-hide-on="keine"
+          				data-background-icon="fa-square"
+          				data-background-color="#fff">			
+					</div>
+				</div>			
 		</li>
 		<!-- Content Area - End -->
 		<!-- Button Row - Start -->
