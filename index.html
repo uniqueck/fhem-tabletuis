@@ -51,7 +51,7 @@
 				</div>
 				<div 	data-device="calv_UnsereGeburtstage"
 						data-type="symbol" class="bigger warn inline narrow" 
-          			data-get="notification" data-get-warn=".*_(\d+)" 
+          			data-get="notification_area" data-get-warn=".*_(\d+)" 
           			data-get-on='["today_.*","tomorrow_.*"]'
           			data-on-colors='["#000","#6EB54C"]' 
           			data-icons='["fa-gift","fa-gift"]'
@@ -60,6 +60,17 @@
           			data-background-icon="fa-square"
           			data-background-color="bg-white">			
 				</div>
+				<div 	data-device="CallMon"
+						data-type="symbol" class="bigger warn inline narrow" 
+          			data-get="notification_area" data-get-warn="(\d+)" 
+          			data-get-on='(\d+)'
+          			data-on-color='#000' 
+          			data-icon='fa-phone'
+          			data-hide="notification_area"
+          			data-hide-on="keine"
+          			data-background-icon="fa-square"
+          			data-background-color="bg-white">			
+				</div>				
 		</li> 
 		<!-- Notification Area - Ende -->
 		<li data-row="3" data-col="1" data-sizex="2" data-sizey="4" class="gs-w bg-cyan">
