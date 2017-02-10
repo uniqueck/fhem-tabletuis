@@ -24,48 +24,63 @@
 		<meta name="widget_margin" content="0"/>
 	        
 		 <link rel="icon" href="favicon.ico" type="image/x-icon" />
-	    	 <link rel="stylesheet" href="css/fhem-tablet-ui-user.css" />
+	    <link rel="stylesheet" href="css/fhem-tablet-ui-user.css" />
 		 <script src="js/fhem-tablet-ui.js" defer></script>
 		
 	</head>
-	<body topmargin="0" leftmargin="0" margin="0">
+	<body topmargin="0" leftmargin="0" margin="0" class="bg-cyan">
 	<div class="gridster">
 		<ul>
-		<li data-row="1" data-col="1" data-sizex="3" data-sizey="1" 
-		class="gs-w"
-		>
-			<div data-type="clock" data-format="H:i  d M Y"
-			 	class="cell bigger"
-			 	>
+		<!-- Notification Area - Start -->
+		<li data-row="1" data-col="1" data-sizex="4" data-sizey="2" class="gs-w bg-black">
+			<div data-type="clock" data-format="d.m.y H:i" class="center grande thin">
 			</div>		
 		</li> 
-		<li data-row="1" data-col="1" data-sizex="6" data-sizey="1" 
-		class="gs-w"
-		>
+		<li data-row="1" data-col="5" data-sizex="6" data-sizey="2" class="gs-w bg-black">
+			<div class="right cell">
+				<div 	data-device="abfall_Bretten"
+						data-type="symbol" class="bigger warn inline narrow" 
+          			data-get="notification_area" data-get-warn=".*(\d+).*" 
+          			data-get-on='["Restmuell_.*","Wertstoff_.*"]'
+          			data-on-colors='["#000","#6EB54C"]' 
+          			data-icons='["fa-trash-o","fa-trash-o"]'
+          			data-hide="notification_area"
+          			data-hide-on="keine"
+          			data-background-icon="fa-square"
+          			data-background-color="#fff">
+				</div>
+				<div 	data-device="calv_UnsereGeburtstage"
+						data-type="symbol" class="bigger warn inline narrow" 
+          			data-get="notification_area" data-get-warn=".*_(\d+)" 
+          			data-get-on='["today_.*","tomorrow_.*"]'
+          			data-on-colors='["#000","#6EB54C"]' 
+          			data-icons='["fa-gift","fa-gift"]'
+          			data-hide="notification_area"
+          			data-hide-on="keine"
+          			data-background-icon="fa-square"
+          			data-background-color="#fff">			
+				</div>
+				<div data-type="link" data-url="missed_calls.html">				
+					<div 	data-device="CallMon"
+							data-type="symbol" class="bigger warn inline narrow" 
+          				data-get="notification_area" data-get-warn="(\d+)" 
+          				data-get-on='(\d+)'
+          				data-on-color='#000' 
+          				data-icon='fa-phone'
+          				data-hide="notification_area"
+          				data-hide-on="keine"
+          				data-background-icon="fa-square"
+          				data-background-color="#fff">			
+					</div>
+				</div>				
 		</li> 
-		<li data-row="1" data-col="10" data-sizex="1" data-sizey="1" 
-		class="gs-w"
-		>
-			<div  
-				class="cell big narrow" 
-				data-on-color="#11D597" 
-				data-off-color="#11D597" 
-				data-background-icon="" 
-				data-icon="fa-microphone" 
-				data-type="button" 
-				data-fhem-cmd=""
-				data-device="amad.lifetab"
-				>
-			</div>
+		<!-- Notification Area - Ende -->
+		<li data-row="3" data-col="1" data-sizex="1" data-sizey="1" class="gs-w bg-cyan">
+			<header><div data-type="label" class="bigger" data-device="Heizstrahler" data-get="alias" /></header>			
+			<div data-type="push" data-device="Heizstrahler" data-set-on="on-for-timer 600">
+			</div>			
 		</li> 
-		<li data-row="2" data-col="1" data-sizex="10" data-sizey="9" 
-		class="gs-w"
-		>
-		</li> 
-		<li data-row="11" data-col="1" data-sizex="10" data-sizey="2" 
-		class="gs-w bg-white"
-		>
-		</li> 
+		<!-- Button Line -Start --> 
 		<li data-row="13" data-col="1" data-sizex="10" data-sizey="2" class="gs-w">
 			<div class="center">			
 			<div  
@@ -91,9 +106,9 @@
 				data-on-background-color="#FFF" 
 				data-on-color="#000" 
 				data-background-icon="fa-square" 
-				data-icon="fa-phone" 
+				data-icon="fa-music" 
 				data-type="button" 
-				data-url="notification.html">
+				data-url="music.html">
 			</div>
 			</div>
 		</li> 
