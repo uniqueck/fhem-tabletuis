@@ -24,37 +24,21 @@
 		<meta name="widget_margin" content="0"/>
 	        
 		 <link rel="icon" href="favicon.ico" type="image/x-icon" />
-	    	 <link rel="stylesheet" href="css/fhem-tablet-ui-user.css" />
+	    <link rel="stylesheet" href="css/fhem-tablet-ui-user.css" />
 		 <script src="js/fhem-tablet-ui.js" defer></script>
 		
 	</head>
-	<body topmargin="0" leftmargin="0" margin="0">
+	<body topmargin="0" leftmargin="0" margin="0" class="bg-cyan">
 	<div class="gridster">
 		<ul>
-		<li data-row="1" data-col="1" data-sizex="3" data-sizey="1" 
-		class="gs-w">
-			<div data-type="clock" data-format="H:i  d M Y" class="cell bigger">
-			</div>
-		</li>
-		<li data-row="1" data-col="1" data-sizex="6" data-sizey="1" class="gs-w">
-		</li>
-		<li data-row="1" data-col="10" data-sizex="1" data-sizey="1" 
-		class="gs-w">
-			<!--
-			<div  
-				class="cell big narrow" 
-				data-on-color="#11D597" 
-				data-off-color="#11D597" 
-				data-background-icon="" 
-				data-icon="fa-microphone" 
-				data-type="button" 
-				data-fhem-cmd=""
-				data-device="amad.lifetab"
-				>
-			</div>
-			-->
+		<!-- Notification Area - Start -->
+		<li data-row="1" data-col="1" data-sizex="4" data-sizey="2" class="gs-w bg-black">
+			<div data-type="clock" data-format="d.m.y H:i" class="center grande thin">
+			</div>		
 		</li> 
-		<li data-row="2" data-col="1" data-sizex="3" data-sizey="7" 
+		<li data-row="1" data-col="5" data-sizex="6" data-sizey="2" class="gs-w bg-black" data-template="notification_template.html"></li> 
+		<!-- Notification Area - Ende --> 
+		<li data-row="3" data-col="1" data-sizex="3" data-sizey="7" 
 		class="gs-w bg-cyan">
 			<div data-type="label" class="cell big" data-device="Sonos_Buero" data-get="roomNameAlias">
 			</div>
@@ -113,7 +97,7 @@
 				</div>
 			</div>
 		</li> 
-		<li data-row="2" data-col="4" data-sizex="3" data-sizey="7" 
+		<li data-row="3" data-col="4" data-sizex="3" data-sizey="7" 
 		class="gs-w bg-cyan"
 		>
 			<div data-type="label" class="cell big" data-device="Sonos_Buero_RF" data-get="roomNameAlias"
@@ -177,7 +161,7 @@
 				</div>
 			</div>
 		</li> 
-		<li data-row="2" data-col="7" data-sizex="3" data-sizey="7" 
+		<li data-row="3" data-col="7" data-sizex="3" data-sizey="7" 
 		class="gs-w bg-cyan"
 		>
 			<div data-type="label" class="cell big" data-device="MPD.RuneAudio" data-get="alias"
