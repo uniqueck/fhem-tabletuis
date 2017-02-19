@@ -38,31 +38,7 @@
 			<div data-type="clock" data-format="d.m.y H:i" class="center grande thin">
 			</div>		
 		</li> 
-		<li data-row="1" data-col="5" data-sizex="6" data-sizey="2" class="gs-w bg-black">
-			<div class="right cell">
-				<div 	data-device="abfall_Bretten"
-						data-type="symbol" class="bigger warn inline narrow" 
-          			data-get="notification_area" data-get-warn=".*(\d+).*" 
-          			data-get-on='["Restmuell_.*","Wertstoff_.*"]'
-          			data-on-colors='["#000","#6EB54C"]' 
-          			data-icons='["fa-trash-o","fa-trash-o"]'
-          			data-hide="notification_area"
-          			data-hide-on="keine"
-          			data-background-icon="fa-square"
-          			data-background-color="#fff">
-				</div>
-				<div 	data-device="calv_UnsereGeburtstage"
-						data-type="symbol" class="bigger warn inline narrow" 
-          			data-get="notification_area" data-get-warn=".*_(\d+)" 
-          			data-get-on='["today_.*","tomorrow_.*"]'
-          			data-on-colors='["#000","#6EB54C"]' 
-          			data-icons='["fa-gift","fa-gift"]'
-          			data-hide="notification_area"
-          			data-hide-on="keine"
-          			data-background-icon="fa-square"
-          			data-background-color="#fff">			
-				</div>				
-		</li> 
+		<li data-row="1" data-col="5" data-sizex="6" data-sizey="2" class="gs-w bg-black" data-template="notification_template.html"></li> 
 		<!-- Notification Area - Ende -->
 		<!-- Content Area - Start -->
 		<!-- Missed Call - 1 -->		
