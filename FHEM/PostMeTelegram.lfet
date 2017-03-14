@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<LFET version="LF-ET 2.1.5 (160720a)" language="German" saveDate="2017.02.17 at 00:09:12 CET" saveUser="constantin">
+<LFET version="LF-ET 2.1.5 (170306b)" language="German" saveDate="2017.03.12 at 22:21:36 CET" saveUser="constantin">
   <Conditions>
     <Condition uId="1487027979862122">
-      <Title language="German" value="step"/>
+      <Title language="German" value="state"/>
       <ConditionOccurrences>
         <ConditionOccurrence uId="1487028016490217">
-          <Symbol language="German" value="0"/>
-          <Title language="German" value="0"/>
+          <Symbol language="German" value="INIT"/>
+          <Title language="German" value="doing init stuff"/>
+          <SourceCode codeLanguage="Perl" sourceCodeType="LogArg" value="($state eq &quot;INIT&quot;)"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="1487028016490219">
           <Symbol language="German" value="1"/>
           <Title language="German" value="1"/>
-        </ConditionOccurrence>
-        <ConditionOccurrence uId="1487028024921224">
-          <Symbol language="German" value="2"/>
-          <Title language="German" value="2"/>
+          <SourceCode codeLanguage="Perl" sourceCodeType="LogArg" value="($state eq &quot;1&quot;)"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
     </Condition>
     <Condition uId="11446800829457960">
       <Title language="German" value="klick event from inline keyboard"/>
       <Text language="German" value="($event =~ /queryData\:\s(.*)/)"/>
+      <SourceCode codeLanguage="Perl" sourceCodeType="LogArg" value="( $event =~ /queryData\:\s(.*)/ )"/>
+    </Condition>
+    <Condition uId="14873794213882670">
+      <Title language="German" value="menudata"/>
+      <SourceCode codeLanguage="Perl" sourceCodeType="LogArg" value="( $event =~ /menuData\:\s*(.*)\s*(.*)/ )"/>
     </Condition>
     <Condition uId="1487028221063283">
       <Title language="German" value="menuentry"/>
@@ -30,19 +33,23 @@
           <Symbol language="German" value="MAIN"/>
           <Title language="German" value="Hauptmenü"/>
           <Text language="German" value="($cb1 eq &quot;Hauptmenü&quot;)"/>
+          <SourceCode codeLanguage="Perl" sourceCodeType="LogArg" value="($cb1 eq &quot;Hauptmenü&quot;)"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="1487204006159650">
           <Symbol language="German" value="POSTIT"/>
           <Title language="German" value="Listenverwaltung"/>
           <Text language="German" value="($cb1 eq &quot;PostIt&quot;)"/>
+          <SourceCode codeLanguage="Perl" sourceCodeType="LogArg" value="($cb1 eq &quot;PostIt&quot;)"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="1487204370509950">
           <Symbol language="German" value="CTRL"/>
           <Title language="German" value="Steuerung (aktuell noch kein Funktion dahinter)"/>
+          <SourceCode codeLanguage="Perl" sourceCodeType="LogArg" value="($cb1 eq &quot;Steuerung&quot;)"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="1487204389367953">
           <Symbol language="German" value="LIST"/>
           <Title language="German" value="eine Liste"/>
+          <SourceCode codeLanguage="Perl" sourceCodeType="LogArg" value="( $cb1 =~ /((Einkauf)|(Baumarkt)).*/ )"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="1487204026029657">
           <Symbol language="German" value="*"/>
@@ -50,77 +57,146 @@
         </ConditionOccurrence>
       </ConditionOccurrences>
       <Text language="German" value="Prolog der B03:&lt;br/&gt;&lt;br/&gt;($cb1,$cb2) = split(/ /,$1,2);"/>
+      <SourceCode codeLanguage="Perl" sourceCodeType="Prolog" value="($cb1,$cb2) = split(/ /,$1,2);&lt;br/&gt;Log 3, &quot;Telegram Notification Bearbeitung queryData $cb1 $cb2&quot;;"/>
+    </Condition>
+    <Condition uId="1487377596935593">
+      <Title language="German" value="exists postIt lists"/>
+      <Text language="German" value="if (scalar @postItListen &gt; 0)"/>
+      <SourceCode codeLanguage="Perl" sourceCodeType="LogArg" value="(scalar @postItListen &gt; 0)"/>
     </Condition>
   </Conditions>
   <Actions>
-    <Action uId="1487028092462274">
-      <Title language="German" value="split queryData"/>
-      <Text language="German" value="($cb1,$cb2) = split(/ /,$1,2);"/>
+    <Action uId="1487291376284827">
+      <Title language="German" value="identify all postIt lists"/>
+      <Text language="German" value="# ermittle alle Listen in ein Array&lt;br/&gt;my @postItListen;&lt;br/&gt;for (my $i = 1; $i &lt;= ReadingsVal($postItDevice, &quot;postmeCnt&quot;,0); $i++) {&lt;br/&gt;&amp;#009;push(@postItListen, ReadingsVal($postItDevice, sprintf(&quot;postme%02dName&quot;,$i),&quot;&quot;));&lt;br/&gt;}&lt;br/&gt;@postItListen = sort(@postItListen) if(scalar @postItListen &gt; 0);"/>
+      <SourceCode codeLanguage="Perl" sourceCodeType="StmtSeq" value="for (my $i = 1; $i &lt;= ReadingsVal($postItDevice, &quot;postmeCnt&quot;,0); $i++) {&lt;br/&gt;           push(@postItListen, ReadingsVal($postItDevice, sprintf(&quot;postme%02dName&quot;,$i),&quot;&quot;));&lt;br/&gt;}&lt;br/&gt;@postItListen = sort(@postItListen) if(scalar @postItListen &gt; 0);"/>
     </Action>
     <Action uId="11446800828767967">
       <Title language="German" value="new menuMsgId"/>
+      <Text language="German" value="$menuMsgId = $queryReplyMsgId;&lt;br/&gt;fhem(&quot;setreading fhemBot menuMsgId $menuMsgId&quot;);"/>
+      <SourceCode codeLanguage="Perl" sourceCodeType="StmtSeq" value="$menuMsgId = $queryReplyMsgId;"/>
     </Action>
     <Action uId="1487028274902293">
-      <Title language="German" value="send menuentries for Hauptmenü"/>
+      <Title language="German" value="send menuentries for main menu"/>
       <Text language="German" value="fhem(&quot;set fhemBot queryInline \@$querypeer (PostIt) (Steuerung) Hauptmenü&quot;);"/>
+      <ActionOccurrences>
+        <ActionOccurrence uId="1487377651773772">
+          <Symbol language="German" value="PS"/>
+          <Title language="German" value="PostIt und Steuerung"/>
+          <SourceCode codeLanguage="Perl" sourceCodeType="StmtSeq" value="fhem(&quot;set fhemBot queryInline \@$querypeer (PostIt) (Steuerung) Hauptmenü&quot;);"/>
+        </ActionOccurrence>
+        <ActionOccurrence uId="1487377669060779">
+          <Symbol language="German" value="S"/>
+          <Title language="German" value="nur Steuerung"/>
+          <SourceCode codeLanguage="Perl" sourceCodeType="StmtSeq" value="fhem(&quot;set fhemBot queryInline \@$querypeer (Steuerung) Hauptmenü&quot;);"/>
+        </ActionOccurrence>
+      </ActionOccurrences>
+    </Action>
+    <Action uId="148729079911896">
+      <Title language="German" value="send menuentries for postIt"/>
+      <Text language="German" value="fhem(&quot;set fhemBot queryEditInline $menuMsgId \@$querypeer (Hauptmenü) (Einkauf) (Baumarkt) PostIt Listenverwaltung;&quot;);"/>
+      <SourceCode codeLanguage="Perl" sourceCodeType="StmtSeq" value="fhem(&quot;set fhemBot queryEditInline $menuMsgId \@$querypeer (Hauptmenü) (Einkauf) (Baumarkt) PostIt Listenverwaltung;&quot;);"/>
     </Action>
     <Action uId="11446800829627977">
-      <Title language="German" value="step"/>
+      <Title language="German" value="state"/>
       <ActionOccurrences>
         <ActionOccurrence uId="1487028065821263">
-          <Symbol language="German" value="X"/>
-          <Title language="German" value="Aktion ausführen"/>
+          <Symbol language="German" value="END"/>
+          <Title language="German" value="end"/>
+          <SourceCode codeLanguage="Perl" sourceCodeType="StmtSeq" value="$state = &quot;END&quot;;"/>
         </ActionOccurrence>
         <ActionOccurrence uId="1487028065822270">
           <Symbol language="German" value="1"/>
           <Title language="German" value="1"/>
+          <SourceCode codeLanguage="Perl" sourceCodeType="StmtSeq" value="$state = &quot;1&quot;;"/>
         </ActionOccurrence>
       </ActionOccurrences>
     </Action>
   </Actions>
-  <Rules lastId="15">
-    <Rule id="3">
+  <Rules lastId="42">
+    <Rule id="24">
+      <ConditionOccurrenceLink link="1487028016490217"/>
+      <ActionLink link="1487291376284827"/>
+      <ActionOccurrenceLink link="1487028065822270"/>
+    </Rule>
+    <Rule id="37">
       <ConditionLink link="11446800829457960" conditionState="true"/>
       <Text language="German" value="($event eq $$OccNr)"/>
-      <ConditionOccurrenceLink link="1487028016490217"/>
-      <ActionOccurrenceLink link="1487028065822270"/>
-      <ActionLink link="1487028092462274"/>
-    </Rule>
-    <Rule id="4">
-      <ConditionLink link="11446800829457960" conditionState="false"/>
-      <ConditionOccurrenceLink link="1487028016490217"/>
-    </Rule>
-    <Rule id="9">
       <ConditionOccurrenceLink link="1487028016490219"/>
-      <ActionLink link="11446800828767967"/>
-      <Text language="German" value="($event eq $$OccNr)"/>
+      <ActionOccurrenceLink link="1487028065821263"/>
       <ConditionOccurrenceLink link="1487204006159648"/>
+      <ConditionLink link="1487377596935593" conditionState="true"/>
+      <ActionOccurrenceLink link="1487377651773772"/>
     </Rule>
-    <Rule id="12">
+    <Rule id="38">
+      <ConditionLink link="11446800829457960" conditionState="true"/>
+      <Text language="German" value="($event eq $$OccNr)"/>
       <ConditionOccurrenceLink link="1487028016490219"/>
+      <ActionOccurrenceLink link="1487028065821263"/>
+      <ConditionOccurrenceLink link="1487204006159648"/>
+      <ConditionLink link="1487377596935593" conditionState="false"/>
+      <ActionOccurrenceLink link="1487377669060779"/>
+    </Rule>
+    <Rule id="39">
+      <ConditionLink link="11446800829457960" conditionState="true"/>
+      <Text language="German" value="($event eq $$OccNr)"/>
+      <ConditionOccurrenceLink link="1487028016490219"/>
+      <ActionOccurrenceLink link="1487028065821263"/>
       <ConditionOccurrenceLink link="1487204006159650"/>
       <ActionLink link="11446800828767967"/>
+      <ActionLink link="148729079911896"/>
     </Rule>
-    <Rule id="13">
+    <Rule id="40">
+      <ConditionLink link="11446800829457960" conditionState="true"/>
+      <Text language="German" value="($event eq $$OccNr)"/>
       <ConditionOccurrenceLink link="1487028016490219"/>
+      <ActionOccurrenceLink link="1487028065821263"/>
       <ConditionOccurrenceLink link="1487204370509950"/>
+      <ActionLink link="11446800828767967"/>
     </Rule>
-    <Rule id="14">
+    <Rule id="41">
+      <ConditionLink link="11446800829457960" conditionState="true"/>
+      <Text language="German" value="($event eq $$OccNr)"/>
       <ConditionOccurrenceLink link="1487028016490219"/>
+      <ActionOccurrenceLink link="1487028065821263"/>
       <ConditionOccurrenceLink link="1487204389367953"/>
     </Rule>
-    <Rule id="15">
+    <Rule id="42">
+      <ConditionLink link="11446800829457960" conditionState="true"/>
+      <Text language="German" value="($event eq $$OccNr)"/>
       <ConditionOccurrenceLink link="1487028016490219"/>
+      <ActionOccurrenceLink link="1487028065821263"/>
       <ConditionOccurrenceLink link="1487204026029657"/>
     </Rule>
-    <Rule id="8">
-      <ConditionOccurrenceLink link="1487028024921224"/>
-      <Text language="German" value="($event eq $$OccNr)"/>
+    <Rule id="34">
+      <ConditionLink link="11446800829457960" conditionState="false"/>
+      <ConditionOccurrenceLink link="1487028016490219"/>
+      <ActionOccurrenceLink link="1487028065821263"/>
+      <ConditionLink link="14873794213882670" conditionState="true"/>
+      <ConditionLink link="1487377596935593" conditionState="true"/>
+      <ActionOccurrenceLink link="1487377651773772"/>
+    </Rule>
+    <Rule id="35">
+      <ConditionLink link="11446800829457960" conditionState="false"/>
+      <ConditionOccurrenceLink link="1487028016490219"/>
+      <ActionOccurrenceLink link="1487028065821263"/>
+      <ConditionLink link="14873794213882670" conditionState="true"/>
+      <ConditionLink link="1487377596935593" conditionState="false"/>
+      <ActionOccurrenceLink link="1487377669060779"/>
+    </Rule>
+    <Rule id="36">
+      <ConditionLink link="11446800829457960" conditionState="false"/>
+      <ConditionOccurrenceLink link="1487028016490219"/>
+      <ActionOccurrenceLink link="1487028065821263"/>
+      <ConditionLink link="14873794213882670" conditionState="false"/>
     </Rule>
   </Rules>
   <Title language="German" value="Listen Verwaltung mit FHEM und Telegram"/>
   <UrlsOut>
     <Url title="Ordner" url="file:///./"/>
   </UrlsOut>
-  <Text language="German" value="Der generierte Code muss wie folgt aussehen, wobei das aktuell noch ein Arbeitsstand ist und&lt;br/&gt;nicht ganz der LFET entspricht, da ich in der LFET mit Steps arbeiten werde.&lt;br/&gt;&lt;br/&gt;Das ganze ermöglicht mit Hilfe von Telegram und FHEM eine Listen Verwaltung zu realisieren, so dass mit Hilfe der Telegram App die Liste modifiziert werden kann.&lt;br/&gt;&lt;br/&gt;#############################################################################&lt;br/&gt;#&lt;br/&gt;#  TelegramInlineKeyboard&lt;br/&gt;#&lt;br/&gt;#############################################################################&lt;br/&gt;sub telegramRecognition($){&lt;br/&gt;   my ($event)    = @_;&lt;br/&gt;   my $querypeer      = ReadingsVal(&quot;fhemBot&quot;, &quot;queryPeer&quot;, 0);&lt;br/&gt;   my $msgpeer        = ReadingsVal(&quot;fhemBot&quot;, &quot;msgPeer&quot;, 0);&lt;br/&gt;   my $queryReplyMsgId= ReadingsVal(&quot;fhemBot&quot;, &quot;queryReplyMsgId&quot;, 0);&lt;br/&gt;   my $MsgId          = ReadingsVal(&quot;fhemBot&quot;, &quot;MsgId&quot;, 0);&lt;br/&gt;   my $menuMsgId      = ReadingsVal(&quot;fhemBot&quot;, &quot;menuMsgId&quot;, $queryReplyMsgId);&lt;br/&gt;   my $calldata       = ReadingsVal(&quot;fhemBot&quot;, &quot;callData&quot;, &quot;&quot;);&lt;br/&gt;   my $tg;&lt;br/&gt;   my $dp;&lt;br/&gt;   my $dm;&lt;br/&gt;   my $res;&lt;br/&gt;   my $cmd;&lt;br/&gt;   my $click;&lt;br/&gt;   my ($cb1,$cb2,$cb1raw);&lt;br/&gt;   &lt;br/&gt;   my $postitlocal=1;&lt;br/&gt;&lt;br/&gt;   &lt;br/&gt;   &lt;br/&gt;   Log 3, &quot;Telegram Notification Bearbeitung $event&quot;;&lt;br/&gt;    #-- Klick event from inline keyboard&lt;br/&gt;   if( $event =~ /queryData\:\s(.*)/ ){&lt;br/&gt;     ($cb1,$cb2) = split(/ /,$1,2);&lt;br/&gt;     Log 3, &quot;Telegram Notification Bearbeitung queryData $cb1 $cb2&quot;;&lt;br/&gt;     #-- Level 0&lt;br/&gt;     if( $cb1 eq &quot;Hauptmenü&quot;){&lt;br/&gt;       fhem(&quot;set fhemBot queryInline \@$querypeer (PostIt) (Steuerung) Hauptmenü&quot;);   &lt;br/&gt;     #-- Level 1&lt;br/&gt;     }elsif( $cb1 eq &quot;PostIt&quot;){&lt;br/&gt;       $menuMsgId = $queryReplyMsgId;&lt;br/&gt;       fhem(&quot;setreading fhemBot menuMsgId $menuMsgId&quot;);&lt;br/&gt;       #-- PostIt-Menü für nicht-klickbare Listen&lt;br/&gt;       fhem(&quot;set fhemBot queryEditInline $menuMsgId \@$querypeer (Hauptmenü) (Einkauf) (Baumarkt) PostIt Listenverwaltung;&quot;);        &lt;br/&gt;       &lt;br/&gt;     }elsif( $cb1 eq &quot;Steuerung&quot;){&lt;br/&gt;       $menuMsgId = $queryReplyMsgId;&lt;br/&gt;       fhem(&quot;setreading fhemBot menuMsgId $menuMsgId&quot;);&lt;br/&gt;     }elsif( $cb1 =~ /((Einkauf)|(Baumarkt)).*/ ){&lt;br/&gt;         my $cb1raw = $cb1;&lt;br/&gt;         Log 3, &quot;Einkauf oder Baumarkt&quot;;&lt;br/&gt;         if( $cb1 =~ /Einkauf.*/){&lt;br/&gt;         $cb1 = &quot;Einkauf&quot;;&lt;br/&gt;         $tg  = 1;&lt;br/&gt;         $dp  = &quot;&lt;hier Adressaten&gt;&quot;;&lt;br/&gt;         &lt;br/&gt;       }elsif( $cb1 =~ /Baumarkt.*/){&lt;br/&gt;         $cb1 = &quot;Baumarktliste&quot;;&lt;br/&gt;         $tg  = 2;&lt;br/&gt;         $dp  = &quot;\&lt;hier Adressaten&gt;&quot;;&lt;br/&gt;         &lt;br/&gt;        }&lt;br/&gt;        Log 3, &quot;cb1 ist $cb1&quot;;&lt;br/&gt;         #-- Level 3 to delete an item&lt;br/&gt;         if( $cb1raw =~ /.*item\d\d/ ){&lt;br/&gt;           Log 3, &quot;Item zum Entfernen $cb1raw&quot;;&lt;br/&gt;           $cb2 = $cb1raw;&lt;br/&gt;           $cb2 =~ s/^.*_//;&lt;br/&gt;           fhem(&quot;set postme_Listen remove $cb1 $cb2&quot;);&lt;br/&gt;           InternalTimer(gettimeofday()+1, &quot;telegramRecognition&quot;,&quot;queryData: $cb1&quot;,0);&lt;br/&gt;         }elsif( $cb1raw =~ /.*add/ ){&lt;br/&gt;           Log 3, &quot;Hinzufügen $cb1raw&quot;;&lt;br/&gt;           fhem(&quot;set fhemBot msgForceReply \@$querypeer Eingabe hinzuzufügender Posten&quot;);&lt;br/&gt;           fhem(&quot;setreading fhemBot prevCmd add $cb1&quot;);&lt;br/&gt;         #-- Level 2 for clickable items&lt;br/&gt;         }else{&lt;br/&gt;           $res = PostMe_tgi(&quot;postme_Listen&quot;,$cb1);&lt;br/&gt;           Log 3, &quot;Liste: $cb1 : $res&quot;;  &lt;br/&gt;           fhem(&quot;set fhemBot queryEditInline $menuMsgId \@$querypeer (Hauptmenü|PostIt|hinzufügen:&quot;.$cb1.&quot;_add) &quot;.$res.&quot;\n Klicken zum Entfernen&quot;); &lt;br/&gt;         }&lt;br/&gt;     }&lt;br/&gt;   }elsif( $event =~ /menuData\:\s*(.*)\s*(.*)/ ){&lt;br/&gt;     my $cb1 = $1;&lt;br/&gt;     my $cb2 = $2;&lt;br/&gt;     Log 3, &quot;Telegram Notification Bearbeitung menuData $cb1 $cb2&quot;;&lt;br/&gt;     if( $cb1 eq &quot;Hauptmenü&quot;){&lt;br/&gt;       fhem(&quot;set fhemBot queryInline \@$msgpeer (PostIt) (Steuerung) Hauptmenü&quot;);&lt;br/&gt;     }&lt;br/&gt;   #-- Process line from forced reply&lt;br/&gt;   }elsif( $event =~ /msgReplyMsgId\:\s+(\d*)/ ){&lt;br/&gt;     my $mn = $1;&lt;br/&gt;     my $mo = ReadingsVal(&quot;fhemBot&quot;, &quot;prevMsgId&quot;, 0)+1;&lt;br/&gt;     my $prev = ReadingsVal(&quot;fhemBot&quot;,&quot;prevCmd&quot;,&quot;none&quot;);&lt;br/&gt;     if( $prev =~ /((add)|(remove)).*/ ){&lt;br/&gt;       fhem(&quot;set postme_Listen $prev &quot;.ReadingsVal(&quot;fhemBot&quot;,&quot;msgText&quot;,&quot;&quot;));&lt;br/&gt;       fhem(&quot;setreading fhemBot prevCmd none&quot;);&lt;br/&gt;       #-- redisplay the list - small delay&lt;br/&gt;       $prev =~ s/((add)|(remove))\s*//;&lt;br/&gt;       InternalTimer(gettimeofday()+1, &quot;telegramRecognition&quot;,&quot;queryData: $prev&quot;,0);&lt;br/&gt;     } &lt;br/&gt;   }&lt;br/&gt;&lt;br/&gt;   &lt;br/&gt;}"/>
+  <SourceCode codeLanguage="Perl" sourceCodeType="Prolog" value="# $$Extension=pm&lt;br/&gt;# $$Filename=99_$$dtname&lt;br/&gt;&lt;br/&gt;package main;&lt;br/&gt;&lt;br/&gt;use strict;&lt;br/&gt;use warnings;&lt;br/&gt;use POSIX;&lt;br/&gt;&lt;br/&gt;sub&lt;br/&gt;$$dtname_Initialize($$)&lt;br/&gt;{&lt;br/&gt;  my ($hash) = @_;&lt;br/&gt;}&lt;br/&gt;&lt;br/&gt;############################################&lt;br/&gt;# Versenden von PostMe Listen per Telegram&lt;br/&gt;############################################&lt;br/&gt;sub sendList($$$) {&lt;br/&gt;  my ($recipient, $subject, $text) = @_;&lt;br/&gt;  my @items = split(&quot;,&quot;, $text);&lt;br/&gt;  @items = sort(@items);&lt;br/&gt;  &lt;br/&gt;  fhem (&quot;set fhemBot message \@&quot;.$recipient.&quot; $subject:\n - &quot;.join(&quot;\n - &quot;, @items));&lt;br/&gt;  return;&lt;br/&gt;}&lt;br/&gt;&lt;br/&gt;#############################################################################&lt;br/&gt;#&lt;br/&gt;#  TelegramInlineKeyboard&lt;br/&gt;#&lt;br/&gt;#############################################################################&lt;br/&gt;sub telegramRecognition($){&lt;br/&gt;   my ($event)    = @_;&lt;br/&gt;   my $querypeer      = ReadingsVal(&quot;fhemBot&quot;, &quot;queryPeer&quot;, 0);&lt;br/&gt;   my $msgpeer        = ReadingsVal(&quot;fhemBot&quot;, &quot;msgPeer&quot;, 0);&lt;br/&gt;   my $queryReplyMsgId= ReadingsVal(&quot;fhemBot&quot;, &quot;queryReplyMsgId&quot;, 0);&lt;br/&gt;   my $MsgId          = ReadingsVal(&quot;fhemBot&quot;, &quot;MsgId&quot;, 0);&lt;br/&gt;   my $menuMsgId      = ReadingsVal(&quot;fhemBot&quot;, &quot;menuMsgId&quot;, $queryReplyMsgId);&lt;br/&gt;   my $calldata       = ReadingsVal(&quot;fhemBot&quot;, &quot;callData&quot;, &quot;&quot;);&lt;br/&gt;   my $tg;&lt;br/&gt;   my $dp;&lt;br/&gt;   my $dm;&lt;br/&gt;   my $res;&lt;br/&gt;   my $cmd;&lt;br/&gt;   my $click;&lt;br/&gt;   my ($cb1,$cb2,$cb1raw);&lt;br/&gt;  &lt;br/&gt;   my $postItDevice = &quot;postme_Listen&quot;;&lt;br/&gt;   my $state = &quot;INIT&quot;; # step control for a decision table&lt;br/&gt;   my @postItListen;&lt;br/&gt;   &lt;br/&gt;   do {"/>
+  <SourceCode codeLanguage="Perl" sourceCodeType="Epilog" value="} while($state ne &quot;END&quot;);&lt;br/&gt;}&lt;br/&gt;&lt;br/&gt;1;"/>
+  <SourceCode codeLanguage="Perl" sourceCodeType="Trace" value="Log 3, &quot;PostMeTelegram, 20170307.000026, 11, 1&quot;;"/>
+  <SourceCode codeLanguage="Perl" sourceCodeType="Error" value="warn &quot;keine Regel wurde ausgeführt&quot;;"/>
 </LFET>

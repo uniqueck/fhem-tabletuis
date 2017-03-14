@@ -49,11 +49,52 @@ sub telegramRecognition($){
    my $cmd;
    my $click;
    my ($cb1,$cb2,$cb1raw);
+  
+   my $postItDevice = "postme_Listen";
+   my $state = "0"; # step control for a decision table
+   my @postItListen;
    
-   my $postitlocal=1;
+   do {
+	# B01 - state   	
+	if ($state eq "0") {
+		# A01 - identify all postIt lists
+        	for (my $i = 1; $i <= ReadingsVal($postItDevice, "postmeCnt",0); $i++) {
+   			push(@postItListen, ReadingsVal($postItDevice, sprintf("postme%02dName",$i),""));
+   		}
+   		@postItListen = sort(@postItListen) if(scalar @postItListen > 0);
+		# A05 - state = 1
+		$state = "1";	
+	} elsif ($state eq "1") {
+		if ( $event =~ /queryData\:\s(.*)/ ) {
+			# prolog - B03
+			($cb1,$cb2) = split(/ /,$1,2);
+			# B03 - menuentry
+			if ($cb1 eq "Hauptmenü") {
+				# B04 - exists postit lists
+				if (scalar @postItListen > 0) {
+					# A03 - send menuentries for main menu - PS				
+					fhem("set fhemBot queryInline \@$querypeer (PostIt) (Steuerung) Hauptmenü");
+					# A05 - state - 2
+					$state = "end";						
+				} else {
+					# A03 - send menuentries for main menu - S				
+					fhem("set fhemBot queryInline \@$querypeer (Steuerung) Hauptmenü");				
+					# A05 - state - 2					
+					$state = "end";
+				}					
+			} elsif ($cb1 eq "PostIt") {
+				# A05 - state - 2					
+				$state = "end";			
+			}		
+		} elsif ( $event =~ /menuData\:\s*(.*)\s*(.*)/ ) {
+			
+		} 
+	} else {
+		$state = "end";
+	} 
+   } while ($state ne "end");
 
-   
-   
+      
    Log 3, "Telegram Notification Bearbeitung $event";
     #-- Klick event from inline keyboard
    if( $event =~ /queryData\:\s(.*)/ ){
